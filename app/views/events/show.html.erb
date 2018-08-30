@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @event.client_id %>
+</p>
+
+<div class="span8">
+	<table class="table table-striped events">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Event ID</th>
+				<th scope="col">SAMAccount Name</th>
+				<th scope="col">Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @windows_events.each do |windows_event| %>
+			<tr>
+				<td scope="row"><%= windows_event.event_id %></th>
+				<td><%= link_to "#{windows_event.samaccountname}", windows_event %></th>
+				<td> <%= windows_event.created_at %></th>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
