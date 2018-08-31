@@ -1,5 +1,6 @@
 class WindowsEventsController < ApplicationController
   before_action :set_windows_event, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /windows_events
   # GET /windows_events.json
@@ -28,10 +29,10 @@ class WindowsEventsController < ApplicationController
 
     respond_to do |format|
       if @windows_event.save
-        format.html { redirect_to @windows_event, notice: 'Windows event was successfully created.' }
+        #format.html { redirect_to @windows_event, notice: 'Windows event was successfully created.' }
         format.json { render :show, status: :created, location: @windows_event }
       else
-        format.html { render :new }
+        #format.html { render :new }
         format.json { render json: @windows_event.errors, status: :unprocessable_entity }
       end
     end

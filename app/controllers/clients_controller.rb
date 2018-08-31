@@ -1,12 +1,13 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /clients
   # GET /clients.json
   def index
     @clients = Client.all
     respond_to do |format|
-      format.html { @clients }
+      format.html
       format.json { render json: @clients }
     end
   end
@@ -38,10 +39,10 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        #format.html { redirect_to @client, notice: 'Client was successfully created.' }
         format.json { render :show, status: :created, location: @client }
       else
-        format.html { render :new }
+        #format.html { render :new }
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end

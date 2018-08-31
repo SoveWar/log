@@ -1,1 +1,2 @@
-json.partial! "clients/client", client: @client
+json.id @client.id
+json.domain @client.domain

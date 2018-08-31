@@ -22,9 +22,9 @@
 		<tbody>
 			<% @windows_events.each do |windows_event| %>
 			<tr>
-				<td scope="row"><%= windows_event.event_id %></th>
+				<td scope="row"><%= @event.name %></th>
 				<td><%= link_to "#{windows_event.samaccountname}", windows_event %></th>
-				<td> <%= windows_event.created_at %></th>
+				<td> <%= windows_event.time %></th>
 			</tr>
 			<% end %>
 		</tbody>
